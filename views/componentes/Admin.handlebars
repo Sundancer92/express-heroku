@@ -19,7 +19,7 @@
 <script>
 
 	const getData = async () => { 
-		const response = await fetch('http://localhost:3000/users'); 
+		const response = await fetch('/users'); 
 		let data = await response.json(); 
 		await printAdminUserList(data); 
 		await printAdminTasks(data); 

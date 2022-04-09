@@ -15,7 +15,7 @@
 
 <script>
 const getData = async () => {
-		const response = await fetch('http://localhost:3000/tareas');
+		const response = await fetch('/tareas');
 		let data = await response.json();
 		await printUserTasks(data);
 	}
