@@ -19,7 +19,7 @@ app.listen(port, () => {
 
 app.use("/public", express.static(__dirname + "/public"));
 
-// Invocacion bootstrap
+// * Invocacion bootstrap
 app.use(
 	"/bootstrap",
 	express.static(__dirname + "/node_modules/bootstrap/dist/css"),
@@ -28,9 +28,9 @@ app.use(
 	"/BootstrapJs",
 	express.static(__dirname + "/node_modules/bootstrap/dist/js/"),
 );
-// Invocacion bootstrap
+// * FIN Invocacion bootstrap
 
-// Configuracion de handlebars
+// * Configuracion de handlebars
 app.set("view engine", "handlebars");
 
 app.engine(
@@ -40,8 +40,8 @@ app.engine(
 		partialsDir: __dirname + "/views/componentes/",
 	}),
 );
-// Configuracion de handlebars
-// ! ---------------------CONFIG----------------------------
+// * FIN Configuracion de handlebars
+// ! --------------------- FIN CONFIG----------------------------
 
 // ? QUERYS
 
@@ -55,7 +55,7 @@ const {
 	deleteUser,
 } = require("./DB/querys");
 
-// ? QUERYS
+// ? FIN QUERYS
 
 // TODO ------------ VISTAS -------------------
 
@@ -123,8 +123,9 @@ app.get("/delete-user", (req, res) => {
 	});
 
 })
+// TODO ------------ FIN VISTAS -------------------
 
-// * API
+// * ------------- API REST ------------------------
 
 // * Comprobar Login y generar Token
 app.get("/validate", async (req, res) => {
@@ -139,7 +140,7 @@ app.get("/validate", async (req, res) => {
 
 		res.cookie("token", token, {
 			httpOnly: true,
-			//maxAge: 120000,
+			maxAge: 120000,
 		});
 
 		res.redirect(`/Inicio`);
@@ -189,7 +190,9 @@ app.delete("/delete-user", async (req, res) => {
 	res.send("no-content");
 })
 
-// ? JASON WEB TOKEN VALIDADOR
+// * ------------- FIN API REST ------------------------
+
+// * JASON WEB TOKEN VALIDADOR
 const validateToken = (token) => {
 	let key = token;
 	const validate = jwt.verify(key, process.env.PRIVATE_KEY);
