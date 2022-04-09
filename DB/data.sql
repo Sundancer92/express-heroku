@@ -7,8 +7,8 @@ CREATE TABLE users(
     username varchar (255) UNIQUE NOT NULL,
     email varchar (255) UNIQUE NOT NULL,
     password varchar (255) NOT NULL,
-    fecha_creacion timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-    tipo varchar(50) NOT NULL;
+    fecha_creacion timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    tipo varchar(50) NOT NULL
     );
 
 CREATE TABLE tareas(
