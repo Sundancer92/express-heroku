@@ -1,5 +1,9 @@
 # Desplegar ExpressJS y PSQL en Heroku
 
+URL: https://desafio-express-heroku.herokuapp.com/
+Admin: Admin
+Pass: admin
+
 ## Secciones
 - Requerimientos del trabajo.
 - Ambiente de Desarrollo📋
